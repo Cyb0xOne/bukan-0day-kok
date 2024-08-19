@@ -18,6 +18,7 @@ RUN rm *.sql
 
 RUN echo "Cyb0x1{`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`}" > /var/www/html/flag.txt
 RUN mv /var/www/html/flag.txt /var/www/html/`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`_flag.txt
+RUN chown www-data:www-data *_flag.txt
 RUN chmod 600 *_flag.txt
 RUN chmod u+x /usr/bin/run
 
