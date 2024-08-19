@@ -14,6 +14,8 @@ RUN chmod -R 777 /var/www/html/application/config/database.php
 RUN echo "* * * * * root cp /var/www/html/application/config/database.php.example /var/www/html/application/config/database.php" >> /etc/crontab
 RUN echo "#!/bin/sh\ncron\n/usr/local/bin/apache2-foreground" > /usr/bin/run
 
+RUN rm *.sql
+
 RUN echo "Cyb0x1{`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`}" > /var/www/html/flag.txt
 RUN mv /var/www/html/flag.txt /var/www/html/`head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13`_flag.txt
 RUN chmod 600 *_flag.txt
