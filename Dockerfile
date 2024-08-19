@@ -2,7 +2,7 @@ FROM php:7.4-apache
 LABEL authors="Reky"
 
 RUN apt-get -y update
-RUN apt-get install -y libicu-dev libpq-dev libzip-dev unzip git cron mariadb-client
+RUN apt-get install -y libicu-dev libpq-dev libzip-dev unzip git cron mariadb-client nano
 RUN docker-php-ext-install intl pdo pdo_pgsql zip mysqli
 
 COPY . /var/www/html/
