@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sekolahku
+      MYSQL_USER: sekolahku
+      MYSQL_PASSWORD: sekolahku
+    ports:
+      - "3305:3306"
+    volumes:
+      - ./db_cms_sekolahku.sql:/docker-entrypoint-initdb.d/datadump.sql
+  web:
+    build: .
+    hostname: bukan-0day-kok.cyb0x1.com
+    ports:
+      - "2020:80"
+    depends_on:
+      - db
